@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/aracelivegamagro/HumanCenteredRobotNavigation_GSoC18/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Posts
+For a more detailed explanation of the work done during GSOC'17 visit the following links:
+1. [Introduction: Social Navigation](/web/gsoc/2018/araceli_vega_magro/post1)
+2. [Adaptive Personal Space](/web/gsoc/2018/araceli_vega_magro/post2)
+3. [Modifications in the Navigation Agent](/web/gsoc/2018/araceli_vega_magro/post3)
+4. [A flexible way to consider the personal spaces](/web/gsoc/2018/araceli_vega_magro/post4)
+5. [Human blocking detector and other new functions](/web/gsoc/2018/araceli_vega_magro/post5)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Content in GitHub
+The work done during GSOC'18 can be found in my GitHub repository. It can be accessed in the following [link](https://github.com/aracelivegamagro/robocomp-shelly). 
 
-### Markdown
+Also, all the commits made for this project can be found in the following [link](https://github.com/aracelivegamagro/robocomp-shelly/commits/master). 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+***
+Araceli Vega Magro
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aracelivegamagro/HumanCenteredRobotNavigation_GSoC18/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
