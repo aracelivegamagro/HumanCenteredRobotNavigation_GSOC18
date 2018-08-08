@@ -21,7 +21,7 @@ Due to the changes made in the navigation component of the robot in the last yea
 
 The work done during this GSOC is summarized below. For a more detailed description, the posts are attached at the end of the page.
 
-### Integration of the social navigation algorithm in the Navigation component. 
+### Integration of the social navigation algorithm. 
 
 The navigation component has changed in the last year, so it has been necessary to integrate in this component all the work done in my last GSOC. The free space graph and the planification algorithm have changed, reason why some modifications had to be performed. 
 
@@ -39,16 +39,21 @@ After the changes made in the component the number of points it is not important
 
 This is one of the most important contributions in this GSOC, as it allow to get a more flexible way to treat the personal spaces of humans.
 
+The free space graph is represented by a set of nodes that are considered free or occupied. These nodes also have a parameter that represent the cost of each point. The robot plans the shortest path between the points of the graph taking into account the cost.
+Three personal spaces has been considered: intimate space, personal space and social space. THe cost of each area has been increased in order that, when the robot plans the shortest route, it will move away from the person, as crossing the personal and social spaces will mean that the path will be longer.
+
+This is a flexible way to adapt the spaces to the environment. If the robot doesn’t have enouh space to navigate, for example in a corridor, if won’t be blocked, but it will navigate through the personal space even if the cost is higher. Besides, it will never cross the intimate area as it is always considered as occupied.
+
 
 ### Taking into account the personal interactions in the clustering
 
-### Go to person, accompany, follow person and pass on right
+I have modified the navigation algorithm in order to cluster the people only if they are interacting.  The human agent adds interacting links between persons when they are interacting. The navigation algorithm reads these links and separates people who are interacting from those who are not. This allows the robot to navigate between people who are not interacting, facilitating the navigation, as no cluster is done.
 
-### Detection of human blocking
+### Other functions implemented
 
-### Detection of human "soft-blocking"
+### Detection of human blocking and "soft-bockling"
 
-### Modification of DSR 
+#### Modification of DSR 
 
 Once it has been detected if the person is blocking or soft-blocking the robot, it is necessary to add this information to the DSR, adding edges between the robot and the person. 
 
