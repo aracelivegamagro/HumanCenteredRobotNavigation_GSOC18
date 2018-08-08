@@ -29,7 +29,7 @@ In first place, the free space graph is now a regular graph, formed by a set of 
 
 Also, the planning algorithm has changed. Before it was used the PRM planner but now the Dijkstra algorithm is used, which searches for the shortest path from the initial position to the destination based only on the free space graph. Thanks to that, it is not longer necessary to include planes in the edges of the personal space.
 
-### Convex Hull to ConcaveHull 
+### ConvexHull to ConcaveHull 
 
 Before it was needed less number of points to represent the polylines because the insertion of planes. To reduce the number of points the ConvexHull was calculated.
 
@@ -39,23 +39,24 @@ After the changes made in the component the number of points it is not important
 
 This is one of the most important contributions in this GSOC, as it allow to get a more flexible way to treat the personal spaces of humans.
 
-The free space graph is represented by a set of nodes that are considered free or occupied. These nodes also have a parameter that represent the cost of each point. The robot plans the shortest path between the points of the graph taking into account the cost.
-Three personal spaces has been considered: intimate space, personal space and social space. THe cost of each area has been increased in order that, when the robot plans the shortest route, it will move away from the person, as crossing the personal and social spaces will mean that the path will be longer.
+The free space graph is represented by a set of nodes that are considered free or occupied. These nodes also have a parameter that represent the cost of each point. The robot plans the shortest path between the points of the graph taking into account the cost. Three personal spaces has been considered: intimate space, personal space and social space. The cost of each area has been increased in order that, when the robot plans the shortest route, it will move away from the person, as crossing the personal and social spaces will mean that the path will be longer.
 
 This is a flexible way to adapt the spaces to the environment. If the robot doesn’t have enouh space to navigate, for example in a corridor, if won’t be blocked, but it will navigate through the personal space even if the cost is higher. Besides, it will never cross the intimate area as it is always considered as occupied.
 
 
 ### Taking into account the personal interactions in the clustering
 
-I have modified the navigation algorithm in order to cluster the people only if they are interacting.  The human agent adds interacting links between persons when they are interacting. The navigation algorithm reads these links and separates people who are interacting from those who are not. This allows the robot to navigate between people who are not interacting, facilitating the navigation, as no cluster is done.
+The navigation algorithm has been modified in order to cluster the people only if they are interacting.  The human agent adds interacting links between persons when they are interacting. The navigation algorithm reads these links and separates people who are interacting from those who are not. This allows the robot to navigate between people who are not interacting, facilitating the navigation, as no cluster is done.
 
 ### Other functions implemented
+
+New functions have been implemented, such as go to person, which allows the robot to approach a certain person given his id in order to interact with it. The accompany function sends the robot next to the person each time it moves. The same thing does the function follow, in this case sending it behind the person. Finally, the pass on right function has been integrated, which creates another gaussian curve turned to the left that makes the robot will  planify a path passing on the right of the person.
 
 ### Detection of human blocking and "soft-bockling"
 
 #### Modification of DSR 
 
-Once it has been detected if the person is blocking or soft-blocking the robot, it is necessary to add this information to the DSR, adding edges between the robot and the person. 
+Once it has been detected if the person is blocking or soft-blocking the robot, it is necessary to add this information to the DSR, adding edges between the robot and the person. To do this, a list of the previous edges between the robot and the person is stored. When this list changes, the old edges are removed and the new ones are inserted.
 
 ***
 
