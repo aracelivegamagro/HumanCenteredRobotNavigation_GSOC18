@@ -1,6 +1,6 @@
 
 ## Posts
-For a more detailed explanation of the work done during GSOC'17 visit the following links:
+For a more detailed explanation of the work done during GSOC'18 visit the following links:
 1. [Introduction: Social Navigation](/web/gsoc/2018/araceli_vega_magro/post1)
 2. [Adaptive Personal Space](/web/gsoc/2018/araceli_vega_magro/post2)
 3. [Modifications in the Navigation Agent](/web/gsoc/2018/araceli_vega_magro/post3)
