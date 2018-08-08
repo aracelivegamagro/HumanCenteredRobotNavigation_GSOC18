@@ -23,15 +23,26 @@ The work done during this GSOC is summarized below. For a more detailed descript
 
 ### Integration of the social navigation algorithm in the Navigation component. 
 
-The navigation component has changed in the last year, so it has been necessary to integrate in this component all the work done in my last GSOC. 
+The navigation component has changed in the last year, so it has been necessary to integrate in this component all the work done in my last GSOC. The free space graph and the planification algorithm have changed, reason why some modifications had to be performed. 
+
+In first place, the free space graph is now a regular graph, formed by a set of free or occupied points. It has been necessary to set as occupied the points contained in the personal space of humans.
+
+Also, the planning algorithm has changed. Before it was used the PRM planner but now the Dijkstra algorithm is used, which searches for the shortest path from the initial position to the destination based only on the free space graph. Thanks to that, it is not longer necessary to include planes in the edges of the personal space.
 
 ### Convex Hull to ConcaveHull 
 
+Before it was needed less number of points to represent the polylines because the insertion of planes. To reduce the number of points the ConvexHull was calculated.
+
+After the changes made in the component the number of points it is not important, reason why the way the polyline is obtained has changed. the ConcaveHull is calculated to obtain the points of the polyline. With the ConcaveHull the form of the polyline is more accurated.
+
 ### Free space with cost
+
+This is one of the most important contributions in this GSOC, as it allow to get a more flexible way to treat the personal spaces of humans.
+
 
 ### Taking into account the personal interactions in the clustering
 
-### Go to person, accompany and follow person
+### Go to person, accompany, follow person and pass on right
 
 ### Detection of human blocking
 
@@ -39,9 +50,7 @@ The navigation component has changed in the last year, so it has been necessary 
 
 ### Modification of DSR 
 
-Once it has been detected if the person is blocking or soft-blocking the robot, it is necessary to add this information to the DSR, adding edges between the robot and the person.
-
-
+Once it has been detected if the person is blocking or soft-blocking the robot, it is necessary to add this information to the DSR, adding edges between the robot and the person. 
 
 ***
 
