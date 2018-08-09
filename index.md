@@ -37,7 +37,7 @@ After the changes made in the component the number of points it is not important
 
 ### Free space with cost
 
-This is one of the most important contributions in this GSOC, as it allow to get a more flexible way to treat the personal spaces of humans.
+This is one of the most important contributions in this GSOC, as it allows to get a more flexible way to treat the personal spaces of humans.
 
 The free space graph is represented by a set of nodes that are considered free or occupied. These nodes also have a parameter that represent the cost of each point. The robot plans the shortest path between the points of the graph taking into account the cost. Three personal spaces has been considered: intimate space, personal space and social space. The cost of each area has been increased in order that, when the robot plans the shortest route, it will move away from the person, as crossing the personal and social spaces will mean that the path will be longer.
 
@@ -46,13 +46,17 @@ This is a flexible way to adapt the spaces to the environment. If the robot does
 
 ### Taking into account the personal interactions in the clustering
 
-The navigation algorithm has been modified in order to cluster the people only if they are interacting.  The human agent adds interacting links between persons when they are interacting. The navigation algorithm reads these links and separates people who are interacting from those who are not. This allows the robot to navigate between people who are not interacting, facilitating the navigation, as no cluster is done.
+The navigation algorithm has been modified in order to cluster the people only if they are interacting.  The human agent adds interacting links between persons when they are interacting. The navigation algorithm reads these links and separates people who are interacting from those who are not.  This allows the robot to navigate between people who are not interacting, facilitating the navigation, as no cluster is done.
 
 ### Other functions implemented
 
-New functions have been implemented, such as go to person, which allows the robot to approach a certain person given his id in order to interact with it. The accompany function sends the robot next to the person each time it moves. The same thing does the function follow, in this case sending it behind the person. Finally, the pass on right function has been integrated, which creates another gaussian curve turned to the left that makes the robot will  planify a path passing on the right of the person.
+New functions have been implemented, such as go to person, which allows the robot to approach a certain person given his id in order to interact with it. The accompany function sends the robot next to the person each time it moves. The same thing does the function follow, in this case sending it behind the person. Finally, the pass on right function has been integrated, which creates another gaussian curve turned to the left that makes the robot planify a path passing on the right of the person.
 
 ### Detection of human blocking and "soft-bockling"
+
+There can be situations where the robot can not pass because the personal space of humans blocks the path. In this situations, the robot should ask colaboration to pass. To this aim, a function which check if there are humans blocking the path has been created. It uses a empty free space graph to check if the robot can pass without human spaces on it, if it does, it means that the path is blocked by a human. To detect which human blocks the path, the personal spaces of each human present in the environment is inserted one by one. When the robot can not find a path, it means that the last space inserted in the graph is the one which blocks the robot trajectory. In this cases the person blocks the path.
+
+There also can be situations where the robot can pass but it does it by getting close to the person, that is, going through his personal space. In this cases, the robot must approach the person and ask permission to pass. To detect if the robot is getting too close to a person, it is calculated if the planned path goes through the personal space of each human. If it does, the person is soft-blocking the path.
 
 #### Modification of DSR 
 
